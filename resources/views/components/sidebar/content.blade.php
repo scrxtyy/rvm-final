@@ -6,7 +6,7 @@
         </x-slot>
     </x-sidebar.link>
 
-    <x-sidebar.dropdown title="Monitor" :active="Str::startsWith(request()->route()->uri(), 'buttons')">
+    <x-sidebar.dropdown title="Storage Monitor" :active="Str::startsWith(request()->route()->uri(), 'buttons')">
         <x-slot name="icon">
             <x-heroicon-o-view-grid class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         </x-slot>

@@ -4,11 +4,16 @@
             <h2 class="text-xl font-semibold leading-tight">
                 {{ __('Coins Monitor') }}
             </h2>
-            <x-button target="_blank" href="#" variant="black"
-        class="items-center max-w-xs gap-2">
-        <span>Total: {{$coinstotal}} PHP / 200 PHP</span>
-        </x-button>
-        </div>
+            <x-button target="_blank" variant="black"
+            class="items-center max-w-xs gap-2">
+            <span>Total: {{$coinstotal}} PHP / 200 PHP</span>
+            </x-button>
+
+            <x-button target="_blank" variant="white"
+            class="items-center max-w-xs gap-2">
+            <span>Add Coins</span>
+            </x-button>
+            </div>
         
         <style>
             table {
@@ -210,10 +215,6 @@
 
         </x-slot>
 
-    <p class="py-4 text-gray-600 dark:text-gray-400">Coins Log</p> 
-    
-
-
     <div class="py-6">
         <div class="container mx-auto px-4">
             <table class="table">
@@ -222,7 +223,6 @@
                         <td>Log ID</td>
                         <td>Coins IN</td>
                         <td>Coins OUT</td>
-                        <td>TOTAL</td>
                         <td>Date/Time</td>
                     </tr>
                 </thead>
@@ -232,7 +232,6 @@
                             <td>{{$coinsLog->log_id}}</td>
                             <td>{{$coinsLog->coins_in}}</td>
                             <td>{{$coinsLog->coins_out}}</td>
-                            <td>{{$coinsLog->coins_total}}</td>
                             <td>{{$coinsLog->created_at}}</td>
                         </tr>
                     @endforeach
@@ -240,5 +239,4 @@
             </table>
         </div>
     </div>
-
 </x-app-layout>
