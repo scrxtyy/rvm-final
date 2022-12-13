@@ -140,41 +140,31 @@
                       </div>
                   </div>
               </div>
+         
       <script>
-          let options = {
-            startAngle: -1.55,
-            size: 152,
-            value: {{$plastic}},
-            fill: {gradient: ['#8734c1', '#5c3379']}
-          }
-          $(".circle .bar").circleProgress(options).on('circle-animation-progress',
-          function(event, progress, stepValue){
-            $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
-          });
-          $(".js .bar").circleProgress({
-            value: {{$tincans}},
-          });
-          // $(".react .bar").circleProgress({
-          //   value: {{$coins}},
-          // });
-
-          let options1 = {
-            startAngle: -1.55,
-            size: 152,
-            value: {{$coins}},
-            fill: {gradient: ['#8734c1', '#5c3379']}
-          }
-          $(".react .bar").circleProgress(options1).on('circle-animation-progress',
-          function(event, progress, stepValue){
-            $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
-          });
-
-          setInterval(function(){
-            $.get('/dashboard', function(){
-              $(".react .bar").val({$coins});
-              $(".circle .bar").val({{$plastic}});
-              $(".js .bar").val({{$tincans}});
+            let options = {
+              startAngle: -1.55,
+              size: 150,
+              value: {{$plastic}},
+              fill: {gradient: ['#581b81', '#5e286e']}
+            }
+            $(".circle .bar").circleProgress(options).on('circle-animation-progress',
+            function(event, progress, stepValue){
+              $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
             });
-          }, 1000);
+            $(".js .bar").circleProgress({
+              value: {{$tincans}}
+            });
+            $(".react .bar").circleProgress({
+              value: {{$coins}}
+            });
+
+                setInterval(function(){
+                  $.get('/dashboard', function(){
+                    $(".circle .bar").circleProgress({value: {{$plastic}}});
+                    $(".js .bar").circleProgress({ value: {{$tincans}}});
+                    $(".react .bar").circleProgress({ value: {{$coins}}});
+                  });
+                }, 1000);
         </script>
 </x-app-layout>
