@@ -21,7 +21,7 @@ class DataController extends Controller
         $result3 = monitorCoins::latest()->first();   
         $currentCoins = $result3->coins_total; 
         $coins = $currentCoins / 200;
-
+        
         return view('dashboard', compact('plastic' ,'tincans','coins'));
         
 
