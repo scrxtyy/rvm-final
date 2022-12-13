@@ -22,6 +22,7 @@ Route::get('/dashboard', 'App\Http\Controllers\DataController@selectLastPlastic'
 
 Route::get('/monitor/pet', [App\Http\Controllers\LogController::class, 'plasticsTable'])->middleware(['auth'])->name('monitor.pet');
 Route::get('/monitor/tincans', [App\Http\Controllers\LogController::class, 'cansTable'])->middleware(['auth'])->name('monitor.tincans');
+Route::get('/coins', [App\Http\Controllers\LogController::class, 'coinsTable'])->middleware(['auth'])->name('coins');
 
 //Route::get('/monitor/pet', [App\Http\Controllers\DataController::class, ''])->middleware(['auth'])->name('monitor.pet');
 
@@ -40,8 +41,8 @@ Route::get('/monitor/tincans', [App\Http\Controllers\LogController::class, 'cans
 //     return view('monitor.tincans');
 // })->middleware(['auth'])->name('monitor.tincans');
 
-Route::get('/coins', function () {
-    return view('monitor.coins');
-})->middleware(['auth'])->name('coins');
+// Route::get('/coins', function () {
+//     return view('monitor.coins');
+// })->middleware(['auth'])->name('coins');
 
 require __DIR__ . '/auth.php';

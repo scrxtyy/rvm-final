@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\monitorCoins;
 use App\Models\monitorPlastics;
 use App\Models\monitorTincans;
 use Illuminate\Http\Request;
@@ -17,11 +18,11 @@ class DataController extends Controller
         $cansweight = $result2->total_kg; 
         $tincans = $cansweight * 0.1;
 
-        // $result3 = coinsMonitor::latest()->first();   
-        // $currentCoins = $result3->coins_total; 
-        // $coins = $currentCoins * 0.1;
+        $result3 = monitorCoins::latest()->first();   
+        $currentCoins = $result3->coins_total; 
+        $coins = $currentCoins / 200;
 
-        return view('dashboard', compact('plastic' ,'tincans'));
+        return view('dashboard', compact('plastic' ,'tincans','coins'));
         
 
     }

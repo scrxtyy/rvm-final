@@ -154,8 +154,27 @@
           $(".js .bar").circleProgress({
             value: {{$tincans}},
           });
-          $(".react .bar").circleProgress({
-            value: 0.9,
+          // $(".react .bar").circleProgress({
+          //   value: {{$coins}},
+          // });
+
+          let options1 = {
+            startAngle: -1.55,
+            size: 152,
+            value: {{$coins}},
+            fill: {gradient: ['#8734c1', '#5c3379']}
+          }
+          $(".react .bar").circleProgress(options1).on('circle-animation-progress',
+          function(event, progress, stepValue){
+            $(this).parent().find("span").text(String(stepValue.toFixed(2).substr(2)) + "%");
           });
+
+          setInterval(function(){
+            $.get('/dashboard', function(){
+              $(".react .bar").val({$coins});
+              $(".circle .bar").val({{$plastic}});
+              $(".js .bar").val({{$tincans}});
+            });
+          }, 1000);
         </script>
 </x-app-layout>

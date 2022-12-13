@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\coinsMonitor;
+use App\Models\monitorCoins;
 use App\Models\monitorPlastics;
 use App\Models\monitorTincans;
 use Illuminate\Http\Request;
@@ -35,11 +36,11 @@ class LogController extends Controller
 
     public function coinsTable(){
         
-        $result2 = coinsMonitor::latest()->first();   
+        $result2 = monitorCoins::latest()->first();   
         $coinstotal = $result2->coins_total; 
 
-        $coinsTotal = coinsMonitor::all();
-        return view('coins', compact('cansLog','coinsTotal'));
+        $coinsLog = monitorCoins::all();
+        return view('monitor/coins', compact('coinsLog','coinstotal'));
     }
 
 
