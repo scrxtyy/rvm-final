@@ -24,6 +24,9 @@ Route::get('/monitor/pet', [App\Http\Controllers\LogController::class, 'plastics
 Route::get('/monitor/tincans', [App\Http\Controllers\LogController::class, 'cansTable'])->middleware(['auth'])->name('monitor.tincans');
 Route::get('/coins', [App\Http\Controllers\CoinsController::class, 'index'])->middleware(['auth'])->name('coins');
 
+Route::get('/test', function () {
+    return view('testmodal');
+});
 //Route::get('/monitor/pet', [App\Http\Controllers\DataController::class, ''])->middleware(['auth'])->name('monitor.pet');
 
 //Route::get('monitor/pet', [LogController::class, 'plasticsTable']);
