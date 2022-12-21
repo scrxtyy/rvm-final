@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +22,8 @@ Route::get('/dashboard', 'App\Http\Controllers\DataController@selectLastPlastic'
 Route::get('/monitor/pet', [App\Http\Controllers\LogController::class, 'plasticsTable'])->middleware(['auth'])->name('monitor.pet');
 Route::get('/monitor/tincans', [App\Http\Controllers\LogController::class, 'cansTable'])->middleware(['auth'])->name('monitor.tincans');
 Route::get('/coins', [App\Http\Controllers\CoinsController::class, 'index'])->middleware(['auth'])->name('coins');
+
+Route::get('/control', [App\Http\Controllers\AdminController::class, 'adminCont'])->middleware(['auth'])->name('control');
 
 Route::get('/test', function () {
     return view('testmodal');
