@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function adminCont(){
+    public function index(){
         return view('rvm.admin_control');
     }
 }

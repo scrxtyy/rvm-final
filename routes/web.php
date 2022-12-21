@@ -23,7 +23,7 @@ Route::get('/monitor/pet', [App\Http\Controllers\LogController::class, 'plastics
 Route::get('/monitor/tincans', [App\Http\Controllers\LogController::class, 'cansTable'])->middleware(['auth'])->name('monitor.tincans');
 Route::get('/coins', [App\Http\Controllers\CoinsController::class, 'index'])->middleware(['auth'])->name('coins');
 
-Route::get('/control', [App\Http\Controllers\AdminController::class, 'adminCont'])->middleware(['auth'])->name('control');
+Route::get('/control', [App\Http\Controllers\AdminController::class, 'index'])->middleware(['auth'])->name('control');
 
 Route::get('/test', function () {
     return view('testmodal');
