@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monitor_coins', function (Blueprint $table) {
-            $table->id();
-            $table->string('coins_in');
-            $table->string('coins_out');
-            $table->string('coins_total');
-            $table->timestamps('created_at');
+        Schema::create('employees', function (Blueprint $table) {
+            $table->id('rvm_id'); 
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coins_controllers');
+        Schema::dropIfExists('employees');
     }
 };

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
-        return view('rvm.admin_control');
+        
+
+        return view('rvm.admin_control',compact('coinsLog','coinstotal'));
     }
 }
